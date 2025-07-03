@@ -5,12 +5,13 @@ int main() {
     // Vector Section 1
     // ================
     /*
-        #include <iostream> ===> For Including Vector
+        #include <vector> ===> For Including Vector
         How Created Vector Object:
         ==========================
         1- vector <int>name(length); ===> All Boxes is Zero By Default
         2- vector <int>name(5);
            name[0] = 10;
+        3- vector <int>name(5, 100); ===> Create A Vector 5 boxes With 100 Value
 
         Form For Vector:
         ================
