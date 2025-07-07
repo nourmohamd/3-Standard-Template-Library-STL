@@ -7,6 +7,19 @@ bool p(int i) {
     return (i>1000);
 }
 int main() {
+    /*
+        What Do You Learnning In Vector ?
+        =================================
+        1- Add ===> O(1)
+        2- Delete ===> From Back ===> O(1)
+        3- Add ===> Any Where ===> O(n)
+        4- Delete ===> Any Where ===> O(n)
+        5- Access ===> [index] ===> at(index) ===> O(1)
+        6- find() ===> O(log n)
+        7- size ===> Dynamic
+        8- When you widing the size this takes more time
+        9- Depends On The Spaces Between Elements Like Array
+    */
     // Vector Section 3
     /*
         Front <<< [0] [1] [2] [3] [4] [...] >>> Back
