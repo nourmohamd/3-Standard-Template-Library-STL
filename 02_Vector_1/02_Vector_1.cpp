@@ -2,8 +2,8 @@
 #include <vector>
 using namespace std;
 int main() {
-    // Vector Section 1
-    // ================
+    // Vector( Container From Sequences ) Section 1
+    // ============================================
     /*
         #include <vector> ===> For Including Vector
         How Created Vector Object:
