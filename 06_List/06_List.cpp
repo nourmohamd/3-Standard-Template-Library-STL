@@ -2,7 +2,20 @@
 #include <list>
 #include <iterator>
 using namespace std;
+bool even(int i) {
+    return (i%2);
+}
 int main() {
+    /*
+        What We Learnning In List Sequense Container
+        ============================================
+        1 - Don't Support Quick Access at(index), [index]
+        2 - Add & Remove Very Quick ===> O(1) Because It Depend On Iterator
+            And Iterator Depend On Pointers
+             List ---> Iterator ---> Pointers
+        3 - Search ===> O(n)
+        4 - Every Box Take More Size [ pointer for Next | Value | pointer for Previous ]
+    */
     // List From ( Sequense Container )
     // ================================
     /*
@@ -46,10 +59,22 @@ int main() {
             10 - l.remove(n) ===> Delete All Value === n In List
             11 - l.erase(first address, last address) ===> Delete Value In List
             12 - l.insert(Argments) ===> Add Values To List
-
-
+            13 - l.assign(num1, num2) ===> For Reserve num1 Boxes In List With num2 Values
+            14 - l.size() ===> For Get The Size Of List
+            15 - l.empty() ===> For Check If List Empty( True ) Or Not Empty( False )
+            16 - l.resize(num) ===> For Resize List To Num New Size
+            17 - l.clear() ===> For Clear List After Finish From Your Work
+            18 - l1.merge(l2) ===> For Mergin l2 In l1 And Make Format For l2
+            19 - l2.splice(l2.begin(), l1) ===> Take l1 And Put In Begin l2 And Format l1
+            20 - l1.unique() ===> For Remove redundant Element 1, 2, 1 ===> 1, 2
+            21 - l1.remove_if(function_name) ===> For Remove Element By Condition
+            22 - l1.sort() ===> For Sorted Ascending
+            23 - l1.sort(greater<int>()) ===> For Sorted Descending
+            24 - l1.reverse() ===> For Reverse List
+            25 - In List We Cannot Get Element l[0] ===> Wrong
+                 Correct ===> Iterator
     */
-    // Ex1: Erase
+        // Ex1: Erase
     list<int> l = {1, 2, 3, 4, 5};
     l.erase(l.begin());
     // 2, 3, 4, 5
@@ -84,6 +109,31 @@ int main() {
     // 2 10 123
     l3.insert(l.begin(), 2, 100);
     // 100 100 2 10 123
+
+    // Ex4: Merge
+    list<int> l4 = {1, 2, 3};
+    list<int> l5 = {4, 5, 0};
+    l5.merge(l4);
+    for(auto i: l4)
+        cout<<i<<" ";
+    cout<<endl;
+    if(l4.empty()) {
+        cout<<"Empty"<<endl;
+    }
+    // Output: Empty ===> This is only
+    for(auto i: l5)
+        cout<<i<<" ";
+    cout<<endl;
+    // Output: 1 2 3 4 5 0
+
+    // Ex5: remove_if
+    l5.remove_if(even);
+    for(auto i: l5)
+        cout<<i<<" ";
+    cout<<endl;
+    // Output: 2 4 0
+
+
 
     return 0;
     system("PAUSE");
