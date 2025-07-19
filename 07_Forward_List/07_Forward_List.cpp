@@ -2,7 +2,16 @@
 #include <forward_list>
 using namespace std;
 int main() {
-    // Forward List
+    /*
+         What We Learnning In List Sequense Container
+         ============================================
+         1- Quick In Add And Remove
+         2- Save More Storage
+         3- Build By: Single Linked List
+         4- It has one pointer point to next node
+    */
+    // Forward List From ( Sequense Container )
+    // ========================================
     /*
         Forward List Made Up From Single Linked List
         ============================================
@@ -26,6 +35,12 @@ int main() {
         7 - fl.insert_after(fl.before_begin(), 5) ===> Add 5 in first number in Forward List
         8 - fl.emplace_after(fl.begin(), 5) ===> Like insert_after but this more faster and save ---storage---
         9 - fl.next() ===> Get The Address Of The next Element for this element in Forward List
+        10 - fl.erase_after(fl.begin()) ===> Remove Second Element in Forward List
+        11 - fl.remove(n) ===> Delete All Value === n In List
+        12 - fl.remove_if() ===> Same List
+        13 - fl.splice_after() ===> For Concat Two Forward Lists ( And Make fl2 empty )
+        14 - resize() , empty() , max_size() , merge() , sort() ,
+             sort(greater()) , unique() , swap() , clear ()
     */
     // Ex1:
     forward_list<int> fl1;
@@ -71,7 +86,63 @@ int main() {
     cout<< *it2<<endl;
     // Output: 3
 
+    // Ex5: erase_after()
+    forward_list<int> fl3 = {1, 2, 3};
+    fl3.erase_after(fl3.begin());
+    for(int&i: fl3) {
+        cout<<i<<" ";
+    }
+    cout<<endl;
+    // 1 3
+    // Error: fl3.erase_after(fl3.begin()+2) ===> Use Iterator With Next For This because It is List
 
+    // Ex5: remove_if()
+    fl3.remove_if([](int i){return i>0;});
+    for(int&i: fl3) {
+        cout<<i<<" ";
+    }
+    cout<<endl;
+    // Output: Nothing All Element Has Been Deleted
+
+    // Ex6: Splice_After
+    forward_list<int> fl4 = {1, 2, 3};
+    forward_list<int> fl5 = {1, 2, 3};
+    fl4.splice_after(fl4.begin(), fl5);
+    for(int&i: fl4) {
+        cout<<i<<" ";
+    }
+    cout<<endl;
+    // Output: 1 1 2 3 2 3
+    // fl5 is empty
+
+    forward_list<int> fl6 = {1, 2, 3};
+    forward_list<int> fl7 = {1, 2, 3};
+    fl6.splice_after(fl6.before_begin(), fl7, fl7.begin());
+    for(int&i: fl6) {
+        cout<<i<<" ";
+    }
+    cout<<endl;
+    // Output: 2 1 2 3
+    for(int&i: fl7) {
+        cout<<i<<" ";
+    }
+    cout<<endl;
+    // Output: 1 3
+
+    forward_list<int> fl8 = {1, 2, 3};
+    forward_list<int> fl9 = {1, 2, 3};
+    fl8.splice_after(fl8.before_begin(), fl9, fl9.begin(), fl9.end());
+    for(int&i: fl8) {
+        cout<<i<<" ";
+    }
+    cout<<endl;
+    // Output: 2 3 1 2 3
+    for(int&i: fl9) {
+        cout<<i<<" ";
+    }
+    cout<<endl;
+    // Output: 1
+    // Take All Element Without First Element
 
 
 
