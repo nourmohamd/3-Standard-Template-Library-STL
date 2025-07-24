@@ -61,6 +61,15 @@ int main() {
     // By For
     // 3
     // By For By Iterator
+    // 1- By For Loop
+    for(int i=0;i<vp.size();i++) {
+        cout<<vp[i].first<< " "<<vp[i].second<<endl;
+    }
+    // 2- By Iterator
+    vector<pair<int, string>>::iterator it = vp.begin();
+    for(;it!=vp.end();it++) {
+        cout<<it->first<< " "<<it->second<<endl;
+    }
 
 
     return 0;
