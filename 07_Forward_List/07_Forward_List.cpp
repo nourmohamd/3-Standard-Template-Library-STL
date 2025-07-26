@@ -40,7 +40,7 @@ int main() {
         12 - fl.remove_if() ===> Same List
         13 - fl.splice_after() ===> For Concat Two Forward Lists ( And Make fl2 empty )
         14 - resize() , empty() , max_size() , merge() , sort() ,
-             sort(greater()) , unique() , swap() , clear ()
+             sort(greater,<int>()) , unique() , swap() , clear ()
     */
     // Ex1:
     forward_list<int> fl1;
