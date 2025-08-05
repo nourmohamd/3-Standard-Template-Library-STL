@@ -29,6 +29,11 @@ int main() {
         1- m.at(key) ===> For Get Value Of This Key
         2- m.count(key) ===> Return 1 If Element is exists or 0 if not
         3- m.insert() ===> Has More Form << Under In Examples >>
+        4- m.emplace() ===> Same Insert But Faster
+        5- m.emplace_hint() ===> Recive Iterator <<< Required >>>
+        6- m.erase() ===> Has More Form << Under In Examples >>
+        7- m.equal_range() ===> Get Current Element And Next Element In Map
+        8- m.key_comp() ===> Compare Between Two Key In Map
     */
 
     // Ex1:
@@ -99,6 +104,92 @@ int main() {
     }
     cout<<endl;
     // Output: a 10 - b 20 - c 30 - d 40 - e 50 -
+
+    // Ex3:
+    map<int, string> m33;
+    m33.emplace(1, "Mohamed");
+    for(auto i:m33)
+        cout<<i.first<<" "<<i.second<<endl;
+    // Output: 1 Mohamed
+
+    // Ex4: emplace_hint
+    auto it5 = m33.begin();
+    m33.emplace_hint(it5, 2, "Nour");
+    for(auto i:m33)
+    cout<<i.first<<" "<<i.second<<endl;
+    /*
+        Output:
+        =======
+        1 Mohamed
+        2 Nour
+    */
+
+    // Ex5: erase
+    // 1- m.erase(key)
+    // 2- by iterator
+    auto it6 = m33.begin();
+    it6++;
+    m33.erase(it6);
+    for(auto i:m33)
+        cout<<i.first<<" "<<i.second<<endl;
+    // Output: 1 Mohamed
+    // 3- by range
+    auto it7 = m33.begin();
+    m33.erase(it7, m33.end());
+    for(auto i:m33)
+        cout<<i.first<<" "<<i.second<<endl;
+    // Output: Nothing
+    /*
+        Or:
+        ===
+        auto it7 = m33.begin();
+        m33.erase(it7, m33.find(3));
+        Erase Elements From First Until 3(Key) But not erase 3 (Not Include End)
+    */
+
+    // Ex6: equal_range
+    map<int, int> m44 {{1,11}, {2,22}, {3,33}, {4,44}};
+    for(auto i: m44)
+        cout<<i.first<<" "<<i.second<<endl;
+    /*
+        Output:
+        =======
+        1 11
+        2 22
+        3 33
+        4 44
+    */
+    pair<map<int, int>::iterator, map<int, int>::iterator> it8;
+    it8 = m44.equal_range(3);
+    cout<<it8.first->first<<" "<<it8.first->second<<endl
+    <<it8.second->first<<" "<<it8.second->second<<endl;
+    /*
+        Output:
+        =======
+        3 33
+        4 44
+    */
+
+    // Ex7: key_comp
+    map<int, char> m55;
+    m55[1] = 'a';
+    m55[2] = 'b';
+    m55[3] = 'c';
+    map<int, char>::key_compare com;
+    com = m55.key_comp();
+    auto it9 = m55.begin();
+    int x = 3;
+    for(;com(it9->first, x);it9++) {
+        cout<<it9->first<<" "<<it9->second<<endl;
+    }
+    /*
+        Output:
+        =======
+        1 a
+        2 b
+    */
+
+
 
 
 
