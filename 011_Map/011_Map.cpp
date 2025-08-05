@@ -3,6 +3,15 @@
 #include <iterator>
 using namespace std;
 int main() {
+    /*
+        Why You Need To Map:
+        ====================
+        1- unique ===> Keys
+        2- Add & Delete ===> O(log n) ===> O(1)
+        3- Search ===> O(log n)
+        4- Random Access ===> Supported [], at()
+        5- Map/Multimap: Key Cannot Be Modified
+    */
     // Map Container From ( Associative Container )
     /*
         - In Map Every Element Has Two Section [key|Value]
@@ -34,6 +43,16 @@ int main() {
         6- m.erase() ===> Has More Form << Under In Examples >>
         7- m.equal_range() ===> Get Current Element And Next Element In Map
         8- m.key_comp() ===> Compare Between Two Key In Map
+        9- lower_bound & upper_bound
+        10- m.empty()
+        11- m.size()
+        12- m.max_size()
+        13- m.swap() ===> Swap Two Maps
+        14- m.clear()
+
+        Note: For Reverse Sorted In Map Write This
+        map<int, char, greater<int>> m; ===> Reverse Depend On Int(Key)
+        map<int, char, greater<char>> m; ===> Reverse Depend On Char
     */
 
     // Ex1:
@@ -188,6 +207,14 @@ int main() {
         1 a
         2 b
     */
+
+    // Ex8:
+    auto it10 = m55.lower_bound(1);
+    auto it11 = m55.upper_bound(2);
+    m55.erase(it10, it11);
+    for(auto i:m55)
+        cout<<i.first<< " "<<i.second<<endl;
+    // Output: 3 c
 
 
 
