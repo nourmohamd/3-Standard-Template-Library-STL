@@ -13,6 +13,24 @@ int main() {
         ========
         1- us.bucket(s) ===> For Know Every Element In Any Bucket Found ( s ===> Loop )
         2- us.bucket_count() ===> Get Number Of Buckets
+        3- us.bucket_size(i) ===> Get Size Of Bucket i
+        ====Note: Every Bucket Can Content A Number Of Element ( Not Infinite )
+        4- us.size() ===> For Get Size Of us
+        5- us.bucket(i) ===> For Get Bucket That Contains Element i
+        6- us.load_factor() ===> Get Number Of Element These Bucket Can Load Them ( Approximate value )
+        ====load_factor=us.size()/us.bucket_count()
+        7- us.max_load_factor() ===> Get Max Number Of Element These Bucket Can Load Them ( Approximate value )
+        8- us.max_bucket_count() ===> Get Max Number Of Buckets
+        9- us.insert({"El1", "El2"}) ===> For Add Element Or More Element To Unordered_Set
+        10- us.insert(a, a+2) ===> For Add Array To Unordered_Set
+        ==== But string s[] = {"a1", "a2"};
+        11- us.emplace() And us.emplace_hint() ===> Same Before In Set
+        12- us.erase(us.begin()) ===> Remove First Element But Depending On Bucket
+        ==== auto it = us.begin();
+        ==== us.erase(*it);
+        ==== And Can Erase us.erase("Sun");
+        ==== And Can Erase Range us.erase(us.find("Wed"), us.end());
+
     */
 
     // Ex1:
@@ -77,6 +95,28 @@ int main() {
         Sat
         Bucket # 012 Contains:
         Thur Sun
+    */
+    // Ex4: Print Size Of Every Bucket Without Nested Loops
+    int d = us2.bucket_count();
+    for(int i=0;i<d;i++) {
+        cout<<"Bucket #0"<<i<<" ---> "<<us2.bucket_size(i)<<endl;
+    }
+    /*
+        Output:
+        =======
+        Bucket #00 ---> 2
+        Bucket #01 ---> 0
+        Bucket #02 ---> 2
+        Bucket #03 ---> 0
+        Bucket #04 ---> 0
+        Bucket #05 ---> 0
+        Bucket #06 ---> 0
+        Bucket #07 ---> 0
+        Bucket #08 ---> 0
+        Bucket #09 ---> 0
+        Bucket #010 ---> 0
+        Bucket #011 ---> 1
+        Bucket #012 ---> 2
     */
 
 
