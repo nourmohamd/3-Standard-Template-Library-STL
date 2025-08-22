@@ -2,6 +2,16 @@
 #include <unordered_set>
 using namespace std;
 int main() {
+    /*
+        Why We Learnning Unordered_set And Unordered_MultiSet
+        =====================================================
+        1- Add|Delete|Search ===> O(1)
+        2- Random_Access ===> [], at() Not Support
+        3- Doesn't Agree To Change Storage Values
+        4- Doesn't Agree To Change Key Of Values
+        5- Elements Not Sorted
+        Note: Unordered_Set Doesn't Repeated Elements
+    */
     // Unordered_Set From ( Unordered Associative Container )
     // ======================================================
     /*
