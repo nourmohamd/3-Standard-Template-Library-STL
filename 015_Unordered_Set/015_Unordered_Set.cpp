@@ -30,6 +30,12 @@ int main() {
         ==== us.erase(*it);
         ==== And Can Erase us.erase("Sun");
         ==== And Can Erase Range us.erase(us.find("Wed"), us.end());
+        13- us.hash_function() ===> This Function Catch Every Element From us And Make Some Work For Storage This Element In Somewhere
+            With Iterator
+        14- Other Methods: empty(), clear(), count(), reverse(), swap()
+        Note: If All Elements Storage In Same Bucket Solve This Problem With rehash
+        15- us.rehash(100) ===> But 100 > us.bucket_count()
+        Note: If your want to repeat element in unordered_set use unordered_multimap
 
     */
 
@@ -118,6 +124,12 @@ int main() {
         Bucket #011 ---> 1
         Bucket #012 ---> 2
     */
+    // Ex5: hash_function
+    unordered_set<string>::hasher fn;
+    fn = us2.hash_function();
+    cout<<fn("AaaAA")<<endl;
+    // Output: Number For Storage AAA In us
+
 
 
 
