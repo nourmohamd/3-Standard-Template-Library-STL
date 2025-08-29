@@ -34,13 +34,69 @@ int main() {
         2       []
         ==
         It Give me zero
-        cout<<um.at("aaa"); ===> 0
+        cout<<um.["aaa"]; ===> 0
 
         Methods:
         ========
+        1- um.insert({one, two}); ===> For Insert Pair To unordered_map
+        2- um.empty();
+        3- um.size();
+        4- um.max_size();
+        5- um.insert_or_assign("key", 222); if found key update | or no add new key/value
+        6- um.emplace() ===> Same Insert But Faster
+        7- um.emplace_hint()
+        8- um.try_emplace("Key", 123) ===> Search About Key
+            If Found Key In um
+            Doesn't Reserve Place in Memory
 
+            If Not Found
+            Will Add And Reserve Place For It In Memory
+        9- um.erase()
+        10- um.swap()
+        11- um.extract() ===> For Edit On Key in um
+        12- um.merge(um2) ===> For Merge Between Two unordered_map Or two map
+        13- um.bucket("K1") ===> For Get Number Of bucket for element "K1"
+        14- um.bucket_count() ===> For Get Number Of Bucket
+        15- um.bucket_size(0) ===> For Get Size Of Bucket 0 Or 1 Or ...
+        16- um.max_bucket_count() ===> For Get Max Number Of Bucket
     */
+    // Ex1: try_emplace
+    unordered_map<string, int> um{{"A", 1}};
+    cout<< um["A"]<<endl;
+    // Output: 1
+    um.try_emplace("B", 2);
+    cout<< um["B"]<<endl;
+    // Output: 1
+    auto it = um.begin();
+    um.try_emplace(it, "BA", 3);
 
+    // Ex2: Bucket
+    unordered_map<string, int> um2 ({{"A", 1}, {"B", 2}, {"C", 3}});
+    int n = um2.bucket_count();
+    for(int i=0;i<n;i++) {
+        cout<<"Bucket Number #0"<<i<<": ";
+        for(auto it = um2.begin(i);it != um2.end(i); it++) {
+            cout<<"["<<it->first<<":"<<it->second<<"] ";
+        }
+        cout<<endl;
+    }
+    /*
+        Output:
+        =======
+        Bucket Number #00: [B:2]
+        Bucket Number #01:
+        Bucket Number #02:
+        Bucket Number #03:
+        Bucket Number #04:
+        Bucket Number #05: [C:3] [A:1]
+        Bucket Number #06:
+        Bucket Number #07:
+        Bucket Number #08:
+        Bucket Number #09:
+        Bucket Number #010:
+        Bucket Number #011:
+        Bucket Number #012:
+    */
 
 
 
