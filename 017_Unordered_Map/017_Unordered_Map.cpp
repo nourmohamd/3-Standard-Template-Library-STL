@@ -59,6 +59,12 @@ int main() {
         14- um.bucket_count() ===> For Get Number Of Bucket
         15- um.bucket_size(0) ===> For Get Size Of Bucket 0 Or 1 Or ...
         16- um.max_bucket_count() ===> For Get Max Number Of Bucket
+        17- um.load_factor() ===> Get Number Of Elements That Can Take Bucket
+            Lf = size/bucket_count
+        18- um.max_load_factor() ===> Get Max Of Number Of Elements That Can Take Bucket
+        19- um.rehash(100) ===> But Must 100 > bucket_count ===> For Rehash Elements
+        20- um.reverse() ===> Reverse Elements
+        21- um.find("a") ===> For Search About Key a in um
     */
     // Ex1: try_emplace
     unordered_map<string, int> um{{"A", 1}};
@@ -97,6 +103,15 @@ int main() {
         Bucket Number #011:
         Bucket Number #012:
     */
+
+    // Ex3: For Know How can search about element in unordered_map
+    auto search = um2.find("A");
+    if(search != um2.end()) {
+        cout<<"Found"<<endl;
+    } else {
+        cout<<"Not Found"<<endl;
+    }
+    // Output: Found
 
 
 
