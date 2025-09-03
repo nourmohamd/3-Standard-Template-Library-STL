@@ -2,6 +2,14 @@
 #include <unordered_map>
 using namespace std;
 int main() {
+    /*
+        Why We Learnning Unordered_Map
+        ==============================
+        1- ADD|Delete|Search ===> O(1)
+        2- Key Cannot Changed
+        3- Support Random Access
+        4- It Elememnts Are Not Sorted
+    */
     // Unordered Map ( From Unordered Associative Containers )
     // =======================================================
     /*

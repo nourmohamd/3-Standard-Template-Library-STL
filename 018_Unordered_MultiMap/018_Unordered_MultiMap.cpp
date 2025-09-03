@@ -6,8 +6,8 @@ int main() {
     /*
         1- ADD&DELETE&SEARCH ===> O(1)
         2- Key Cannot Changed
-        3- Support Random Access
         4- Elements Is Not Sorted
+        3- Doesn't Support Random Access
         5- Repeated Elements
     */
     unordered_multimap<string, int> um;
