@@ -2,6 +2,12 @@
 #include <queue>
 using namespace std;
 int main() {
+    /*
+        Why We Learnning Priority_Queue ( Adapter Container ):
+        ======================================================
+        1- Add/Delete ===> O(log n)
+        2- Max/Min ===> O(1)
+    */
     // Priority Queue From ( Adapter Container )
     /*
         - Need to use #include<queue>
@@ -51,6 +57,30 @@ int main() {
     // Output: 10 20 50 60
     // The Natural Mode For priority_Queue Is:
     // priority_queue<int, vector<int>, less<int>> pq;
+
+    // Section 2
+    // How can you build the special comparison for you:
+    /*
+        struct com {
+            bool operator() (int&l, int&r) {
+                return (l>=50) < (r>=50);
+            }
+        };
+        int main() {
+    priority_queue<int, vector<int>, com> pq;
+    pq.emplace(20);
+    pq.emplace(50);
+    pq.emplace(100);
+    pq.emplace(110);
+    pq.emplace(5);
+    while(!pq.empty()) {
+        cout<<pq.top()<<" ";
+        pq.pop();
+    }
+    // Output: 50 100 110 20 5 5
+    return 0;
+    }
+    */
 
 
 
